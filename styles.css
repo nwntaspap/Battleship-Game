@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: black;
+}
+
+div#board {
+  position: relative;
+  width: 1024px;
+  height: 823px;
+  margin: auto;
+  background: url("assets/board.jpg") no-repeat;
+}
+
+div#messageArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgb(83, 175, 19);
+  font-size: 3rem;
+}
+
+table {
+  position: absolute;
+  left: 173px;
+  top: 100px;
+  border-spacing: 0;
+}
+
+td {
+  width: 96px;
+  height: 96px;
+  /* background-color: rgba(55, 55, 55, 0.8); */
+  /* border: 1px solid black; */
+}
+
+form {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  padding: 0.7rem;
+  background-color: rgb(83, 175, 19);
+  border-radius: 3px;
+}
+
+form input {
+  background-color: rgb(152, 207, 113);
+  border-color: rgb(83, 175, 19);
+  outline-color: rgb(83, 175, 19);
+  font-size: 1rem;
+  padding: 0.3rem;
+}
+
+form input[type="button"] {
+  font-weight: bold;
+  background-color: rgb(199, 238, 171);
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  margin-left: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+form input[type="button"]:hover {
+  background-color: rgb(169, 214, 137);
+}
+
+form input::placeholder {
+  padding-left: 0.3rem;
+}
+
+.hit {
+  background: url(assets/ship.png) no-repeat center;
+}
+
+.miss {
+  background: url(assets/miss.png) no-repeat center;
+}
