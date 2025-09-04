@@ -21,7 +21,7 @@ let model = {
       let ship = this.ships[i];
       // We can grab the index of guess,
       // instead of looping through locations,
-      // to find the if guess was a hit
+      // to find if the guess was a hit
       let index = ship.locations.indexOf(guess);
 
       if (index >= 0) {
@@ -205,7 +205,7 @@ function init() {
     // reset message
     view.displayMessage("New game started! Good luck!");
 
-    // disable UI
+    // enable UI
     document.getElementById("fireButton").disabled = false;
     document.getElementById("guessInput").disabled = false;
   });
