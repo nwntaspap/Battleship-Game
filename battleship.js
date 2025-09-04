@@ -120,7 +120,7 @@ let controller = {
 
   processGuess(guess) {
     if (model.gameOver) {
-      view.displayMessage("The game is over! Reload to play again.");
+      view.displayMessage("The game is over! Reset game to play again.");
       return;
     }
 
@@ -135,6 +135,14 @@ let controller = {
           `You sank all my battleships, in ${this.guesses} guesses`
         );
         model.gameOver = true; // End game, no further guesses
+
+        setTimeout(() => {
+          view.displayMessage("The game is over! Reset game to play again.");
+        }, 3000);
+
+        // disable UI
+        document.getElementById("fireButton").disabled = true;
+        document.getElementById("guessInput").disabled = true;
       }
     }
   },
@@ -170,8 +178,37 @@ let controller = {
 function init() {
   let fireButton = document.getElementById("fireButton");
   fireButton.onclick = handleFireButton;
+
   let guessInput = document.getElementById("guessInput");
   guessInput.onkeydown = handleKeyDown;
+
+  let resetBtn = document.getElementById("resetGame");
+  resetBtn.addEventListener("click", function () {
+    // reset model state
+    model.shipSunk = 0;
+    model.gameOver = false;
+    controller.guesses = 0;
+
+    // reset ships
+    for (let i = 0; i < model.numShips; i++) {
+      model.ships[i].locations = [0, 0, 0];
+      model.ships[i].hits = ["", "", ""];
+    }
+    model.generateShipLocations();
+
+    // clear board visuals
+    let cells = document.querySelectorAll("td");
+    cells.forEach((cell) => {
+      cell.classList.remove("hit", "miss");
+    });
+
+    // reset message
+    view.displayMessage("New game started! Good luck!");
+
+    // disable UI
+    document.getElementById("fireButton").disabled = false;
+    document.getElementById("guessInput").disabled = false;
+  });
 
   // so it happens right when you load
   // the game before you start playing

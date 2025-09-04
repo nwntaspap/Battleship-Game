@@ -9,12 +9,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <h1>Play Battleship</h1>
+
+    <div class="instructions">
+      <h2>How to Play</h2>
+      <ul>
+        <li>
+          Enter coordinates (like A0, B3) in the input box and press "Fire!"
+        </li>
+        <li>Try to hit all the hidden ships on the board</li>
+        <li>Hits will be marked with a ship, misses with a miss</li>
+        <li>The game ends when all ships are sunk</li>
+        <li>Press "Reset Game" or Reload the page to start a new game</li>
+      </ul>
+    </div>
+
     <div id="board">
       <div id="messageArea"></div>
 
@@ -84,7 +105,9 @@
         </tr>
       </table>
 
+      <button type="reset" id="resetGame">Reset Game</button>
       <form>
+        <label for="guessInput">Enter coordinates</label>
         <input type="text" name="" id="guessInput" placeholder="A0" />
         <input type="button" id="fireButton" value="Fire!" />
       </form>

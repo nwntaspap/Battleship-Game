@@ -9,6 +9,41 @@ body {
   background-color: black;
 }
 
+h1 {
+  font-family: "Ubuntu", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 2rem 0;
+  font-size: 3rem;
+  color: rgb(152, 207, 113);
+  animation: slideIn 0.7s ease;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Ubuntu", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.instructions {
+  width: max-content;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #111;
+  color: rgb(152, 207, 113);
+  box-shadow: 0 0 5px rgb(83, 175, 19);
+}
+
+.instructions ul {
+  list-style-type: lower-roman;
+  list-style-position: inside;
+}
+
+.instructions li {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
 div#board {
   position: relative;
   width: 1024px;
@@ -41,11 +76,17 @@ td {
 
 form {
   position: absolute;
-  bottom: -20px;
+  bottom: -70px;
   right: 0;
   padding: 0.7rem;
   background-color: rgb(83, 175, 19);
   border-radius: 3px;
+}
+
+form label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 form input {
@@ -68,11 +109,29 @@ form input[type="button"] {
   transition: all 0.3s;
 }
 form input[type="button"]:hover {
+  transform: translateY(-2px);
   background-color: rgb(169, 214, 137);
 }
 
 form input::placeholder {
   padding-left: 0.3rem;
+}
+
+button {
+  position: absolute;
+  bottom: -50px;
+  right: 400px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(152, 207, 113);
+  cursor: pointer;
+}
+
+button:hover {
+  animation: moveSideway 1s ease;
 }
 
 .hit {
@@ -81,4 +140,30 @@ form input::placeholder {
 
 .miss {
   background: url(assets/miss.png) no-repeat center;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveSideway {
+  0% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
