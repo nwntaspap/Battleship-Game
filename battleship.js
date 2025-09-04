@@ -3,6 +3,7 @@ let model = {
   numShips: 3,
   shipLength: 3,
   shipSunk: 0,
+  gameOver: false,
 
   ships: [
     { locations: [0, 0, 0], hits: ["", "", ""] },
@@ -10,6 +11,12 @@ let model = {
     { locations: [0, 0, 0], hits: ["", "", ""] },
   ],
   fire(guess) {
+    let cell = document.getElementById(guess);
+    if (cell.classList.contains("hit") || cell.classList.contains("miss")) {
+      view.displayMessage("You already guessed that location!");
+      return false;
+    }
+
     for (let i = 0; i < this.numShips; i++) {
       let ship = this.ships[i];
       // We can grab the index of guess,
@@ -21,6 +28,7 @@ let model = {
         ship.hits[index] = "hit";
         view.displayHit(guess);
         view.displayMessage("HIT!");
+
         if (this.isSunk(ship)) {
           view.displayMessage("You sank my battleship!");
           this.shipSunk++;
@@ -111,6 +119,11 @@ let controller = {
   guesses: 0,
 
   processGuess(guess) {
+    if (model.gameOver) {
+      view.displayMessage("The game is over! Reload to play again.");
+      return;
+    }
+
     // validating user guess
     let location = this.parseGuess(guess);
     if (location) {
@@ -121,6 +134,7 @@ let controller = {
         view.displayMessage(
           `You sank all my battleships, in ${this.guesses} guesses`
         );
+        model.gameOver = true; // End game, no further guesses
       }
     }
   },
