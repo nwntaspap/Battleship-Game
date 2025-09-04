@@ -55,7 +55,7 @@ h2 {
 div#board {
   position: relative;
   width: 90vw;
-  max-width: 1600px;
+  max-width: 1300px;
   aspect-ratio: 3 / 2;
   margin: 0 auto;
   background: url("assets/board.jpg") no-repeat center;
@@ -130,7 +130,7 @@ form input::placeholder {
 button {
   position: absolute;
   bottom: -3%;
-  right: 40%;
+  right: 50%;
   font-size: 1rem;
   font-weight: bold;
   padding: 0.6rem 1.2rem;
