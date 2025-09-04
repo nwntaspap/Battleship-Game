@@ -268,7 +268,7 @@ button:hover {
 }
 @media only screen and (max-width: 500px) {
   div#messageArea {
-    font-size: 1.7rem;
+    font-size: 1rem;
   }
   .instructions {
     padding: 0.5rem;
